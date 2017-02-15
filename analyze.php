@@ -65,18 +65,6 @@
                       print '<script type="text/javascript">document.getElementById("status").innerHTML=\'\';</script>';
               } else
 	  die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">No Latin phrase entered</font>\';parent.document.getElementById(\'thetext\').focus();</script>');
-              ?><script type="text/javascript">
-//<![CDATA[
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  //]]>
-  </script><script type="text/javascript">
-//<![CDATA[
-  try {
-        var pageTracker = _gat._getTracker("UA-11314314-2");
-        pageTracker._trackPageview();
-  } catch(err) {}
-  //]]>
-  </script>
+              ?>
 </body>
 </html>
