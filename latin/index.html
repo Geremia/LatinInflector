@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="keywords" lang="en" content="Latin, language, inflect, inflection, conjugate, conjugation, decline, declension">
+  <meta name="keywords" lang="la" content="Lingua, Latina">
+  <meta name="description" lang="en" content="Inflect (conjugate or decline) words in Latin phrases.">
+  <title>Latin Inflector</title>
+</head>
+<body>
+  <h1>Latin Inflector<a name="inflector" id="inflector"></a></h1>
+  <h2><a href="../greek/">Greek Inflector</a></h2>(<a href="https://github.com/Geremia/LatinInflector/">source code</a>)<br>
+  <a href="#resources">Jump to resources.</a>
+  <p>Enter your Latin sentences below, and click the "Analyze" button, and you will see above each word its part of speech, tense, gender, mood, etc. Click on each word for its definition. Keyboard shortcuts: usually, "mod" = "alt" on PC and "ctrl" on Mac. Note: This analyzer returns multiple possibilities for some words because they have multiple inflections depending on the context. It is therefore your homework to choose the correct one from each drop-down menu before you print it out for later study!</p>
+  <h2>Input</h2>
+  <form action="analyze.php" target="outputIFrame" method="post">
+    <textarea name="thetext" id="thetext" accesskey="T" style="width: 100%; height: 100px;" rows="10" cols="100" title="Mod-T selects this field."></textarea><br>
+    <input type="submit" accesskey="A" onclick="window.frames['outputIFrame'].document.body.innerHTML='';" value="Analyze. (mod-A)"><input type="reset" onclick="document.getElementById('thetext').focus()" value="Clear. (mod-C)" accesskey="C">
+  </form><br>
+  <h2>Output</h2><iframe style="width: 100%; height: 300px; resize: both; overflow: auto;" id="outputIFrame" name="outputIFrame">Frames required</iframe> <button onclick="window.frames['outputIFrame'].focus();window.frames['outputIFrame'].print();" title="I found setting the printer scale to 75% makes a nicely-formatted hardcopy in Firefox." accesskey="P">Print. (mod-P)</button>
+  <h3>Here are excellent resources:<a name="resources" id="resources"></a></h3><a href="#inflector">Return to the Latin Inflector.</a>
+  <ul>
+    <li style="list-style: none; display: inline">
+      <h4>Courses</h4>
+    </li>
+    <li>
+      <a href="simplicissimus.pdf" target="_blank"><i>Simplicissimus</i></a>, an excellent, free, online ecclesiastical Latin course from the <a href="http://www.lms.org.uk/">Latin Mass Society of England and Wales</a>
+    </li>
+    <li>
+      <a href="http://www.hs-augsburg.de/~Harsch/Ludus/lud_port.html" target="_blank"><i>Ludus Latinus</i></a>, an illustrated Latin course
+    </li>
+    <li>
+      <a href="https://isidore.co/calibre/browse/book/3359" target="_blank"><i>Conversational Latin For Oral Proficiency</i></a> by John C. Traupman
+    </li>
+    <li>
+      <a href="http://www.worldcat.org/title/second-latin/oclc/27084330" target="_blank"><i>Second Latin: Grammar, Vocabularies and Exercises in Preparation for the Reading of Philosophy, Theology and Canon Law</i></a> by Scanlon & Scanlon (<a href="https://www.tanbooks.com/index.php/page/shop:flypage/product_id/92/keywords/latin/">Tan Books</a>)
+    </li>
+    <li>
+      <a href="http://www.unavocesevilla.info/latin.htm">Recursos en Español</a> de <a href="http://www.unavocesevilla.info/">Una Voce Sevilla</a>
+    </li>
+    <li>
+      <a href="https://web.uvic.ca/hrd/latin/wheelock/contents.htm">Wheelock's Latin self-checking exercises</a>
+    </li>
+    <li style="list-style: none; display: inline">
+      <h4>Phonetics & Grammar</h4>
+    </li>
+    <li>
+      <a href="http://la.raycui.com/">Latin pronunciation</a>
+    </li>
+    <li>
+      <a href="http://www.wyomingcatholiccollege.com/tabid/96/Default.aspx#holmes">Dr. Jeremy Holmes</a> reads <a href="../aquinas.pdf">St. Thomas Aquinas</a>'s <a href="http://dhspriory.org/thomas/Compendium.htm#2"><i>Compendium</i></a> <a href="http://www.archive.org/search.php?query=creator%3A%22Jeremy%20Holmes%22%20subject%3A%22Latin%22&amp;sort=publicdate">in Latin and explains its grammar <i>ex tempore</i> in Latin</a>.
+    </li>
+    <li>
+      <a href="https://librivox.org/reader/7860">Latin audiobooks</a> with a nice Italianate (i.e., Ecclesiastical with Italian accent) pronunciation
+    </li>
+    <li>
+      <a href="http://www.gutenberg.org/etext/15665" target="_blank"><i>New Latin Grammar</i></a> by Charles E. Bennett
+    </li>
+    <li>
+      <a href="http://www.perseus.tufts.edu/hopper/morph?amp;lang=la&amp;lookup=" target="_blank">Perseus Word Study Tool</a>, a morphological analysis of inflected Latin words, the basis for this webpage
+    </li>
+    <li>
+      <a href="../decliner.html">Decline nouns in the genitive case.</a>
+    </li>
+    <li>
+      <a href="http://www.verbix.com/languages/latin.shtml">Conjugate Latin verbs.</a>
+    </li>
+    <li>
+      <a href="http://www.alpheios.net/">Alpheios</a> is a FireFox add-on that defines double-clicked Latin or Greek words, displays declension tables, and looks up grammatical terms in a Latin grammar.
+    </li>
+    <li style="list-style: none; display: inline">
+      <h4>Dictionaries</h4>
+    </li>
+    <li>
+      <a href="http://www.perseus.tufts.edu/hopper/resolveform?lang=la&amp;lookup=" target="_blank">Lewis & Short's <i>A Latin Dictionary</i></a>, the famous Latin dictionary accessible for free online
+    </li>
+    <li>
+      <a href="http://www.perseus.tufts.edu/hopper/definitionlookup?type=begin&amp;lang=latin&amp;q=">English to Latin</a> translation dictionary
+    </li>
+    <li>Download my <a href="https://raw.github.com/Geremia/LatinDictionary/master/latin.dmg">Latin dictionary</a> for Mac OS X's Dictionary.app (<a href="https://github.com/Geremia/LatinDictionary">source code</a>).
+    </li>
+    <li>
+      <a href="http://www.u.arizona.edu/~aversa/button/latin.html">Define Latin words on your webpage!</a>
+    </li>
+    <li>
+      <a href="http://www.vatican.va/roman_curia/institutions_connected/latinitas/documents/rc_latinitas_20040601_lexicon_it.html">Latinitas dictionary of neologisms</a>
+    </li>
+    <li style="list-style: none; display: inline">
+      <h4>Latin Documents</h4>
+    </li>
+    <li>
+      <a href="http://vulsearch.sourceforge.net/pdf.html">Clementine Vulgate (<i>Vulgata Clementina</i>)</a>
+    </li>
+    <li>Fr. Nikolaus Gihr <a href="http://www.archive.org/details/holysacrificeofm00gihriala"><i>The Holy Sacrifice of the Mass</i></a> "<a href="../language_gihr.pdf">The Language Used in the Celebration of the Holy Mass</a>"
+    </li>
+    <li>John XXIII's <a href="http://www.papalencyclicals.net/John23/j23veterum.htm"><i>Veterum Sapientia</i></a> (<a href="http://www.vatican.va/holy_father/john_xxiii/apost_constitutions/documents/hf_j-xxiii_apc_19620222_veterum-sapientia_lt.html">in Latin here</a>)
+    </li>
+    <li>
+      <a href="../scholastic/st_q1.html">Question 1 of the <i>Summa Theologica</i></a> by <a href="../aquinas.pdf">St. Thomas Aquinas</a> and the <a href="../scholastic/24Thomisticpart2.htm">24 Thomistic Theses with P. Lumbreras, O.P.'s commentary</a>, in Latin and English
+    </li>
+  </ul>It is great you want to learn Latin. Read what the <a href="../baltimore_catechism.pdf"><i>Baltimore Catechism</i></a> says about Latin:
+  <blockquote>
+    <b>Q. 566.</b> Why does the Church use the Latin language instead of the national language of its children?<br>
+    <b>A.</b> The Church uses the Latin language instead of the national language of its children:<br>
+    To avoid the danger of changing any part of its teaching in using different languages;<br>
+    That all its rulers may be perfectly united and understood in their communications;<br>
+    To show that the Church is not an institute of any particular nation, but the guide of all nations.
+  </blockquote><a href="../button/button.html">WikkiMissa directory of traditional Latin masses</a>
+  <p style="text-align:center"><a href="..">Click here</a> to return to my homepage.</p>
+  <hr>
+  <a href="mailto:aveNOrsa@email.ariSPAMzona.edu?subject=Email%20from%20website&amp;body=So%20I%20receive%20your%20message,%20remove%20NO%20and%20SPAM%20from%20my%20email%20address%20and%20leave%20the%20subject%20unchanged.">Contact me.</a>
+</body>
+</html>
