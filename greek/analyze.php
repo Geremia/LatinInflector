@@ -23,43 +23,61 @@
   //]]>
   </script>
   <h3><span id="status"></span></h3><?php
-              function printFloatBox($word){ 
-                      $xmlString = file_get_contents("http://services.perseids.org/bsp/morphologyservice/analysis/word?lang=grc&engine=morpheusgrc&word=".$word) or die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">Cannot reach Perseus server</font>\';</script>');
-                      $xmlString = str_replace(':', '_', $xmlString);
-                      $p = xml_parser_create(); 
-                      $xml = new SimpleXMLElement($xmlString);
-                      $str = "";
-                      $strarray = array();
-                      foreach ($xml->oac_Annotation->oac_Body as $i) {
-                              foreach ($i->cnt_rest->entry->infl as $j) {
-                                      foreach($j as $key => $val) {
-                                              if ($key != "term")
-                                                      $str = $str.$val." ";
-                                      }
-                                      $strarray[] = trim($str);
-                                      $str = "";
-                              }
-                      }
-                      $strarray = array_filter($strarray);
-                      $strarray = array_unique($strarray);
-                      //Print it out
-                      $pos_as_html = '<div id="box"><select>';
-                      foreach ($strarray as $elem)
-                              $pos_as_html = $pos_as_html."<option>".$elem."</option>";
-                      $pos_as_html = $pos_as_html.'</select><div id="lemma"><a href="javascript:definePopup(\''.$word.'\')">'.$word."</a></div></div>";
-                      echo $pos_as_html;
-              }
-              
-              if ($_POST['thetext']!="") {
-                      echo '<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="blue">Processing...</font>\';</script>';
-                      flush(); ob_flush();
-                      $wordsarray = preg_split("/\s+/",$_POST['thetext']);
-                      foreach ($wordsarray as $word) {
-                             printFloatBox($word);
-                      }
-                      echo '<script type="text/javascript">document.getElementById("status").innerHTML=\'\';</script>';
-              } else
-          die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">No Greek phrase entered</font>\';parent.document.getElementById(\'thetext\').focus();</script>');
+function generateStrArray($b) {
+	$infl = $b->rest->entry->infl;
+	if (gettype($infl) == 'array') {
+		foreach ($infl as $i) {
+			foreach ($i as $k => $val) {
+				if (print_r($k,true) != 'term')
+					$str = $str.print_r($val->{'$'}, true)." ";
+			}
+			$strarray[] = trim($str);
+			$str = "";
+		}
+	} elseif (gettype($infl) == 'object') {
+		foreach ($infl as $k => $val) {
+			if (print_r($k,true) != 'pofs')
+				$str = $str.print_r($val->{'$'}, true)." ";
+		}
+		$strarray[] = trim($str);
+		$str = '';
+	}
+	return $strarray;
+
+}
+function printFloatBox($word){ 
+	$jsonString = file_get_contents("http://services.perseids.org/bsp/morphologyservice/analysis/word?lang=grc&engine=morpheusgrc&word=".$word) or die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">Cannot reach Perseus server</font>\';</script>');
+	$json = json_decode($jsonString);
+	$str = "";
+	$strarray = array();
+	$Body = $json->RDF->Annotation->Body;
+	if (sizeof($Body) == 1)
+		$strarray = generateStrArray($Body);
+	else {
+		foreach ($Body as $b) {
+			$strarray = array_merge($strarray,generateStrArray($b));
+		}
+	}
+	$strarray = array_filter($strarray);
+	$strarray = array_unique($strarray);
+	//Print it out
+	$pos_as_html = '<div id="box"><select>';
+	foreach ($strarray as $elem)
+		$pos_as_html = $pos_as_html."<option>".$elem."</option>";
+	$pos_as_html = $pos_as_html.'</select><div id="lemma"><a href="javascript:definePopup(\''.$word.'\')">'.$word."</a></div></div>";
+	echo $pos_as_html;
+}
+
+if ($_POST['thetext']!="") {
+	echo '<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="blue">Processing...</font>\';</script>';
+	flush(); ob_flush();
+	$wordsarray = preg_split("/\s+/",$_POST['thetext']);
+	foreach ($wordsarray as $word) {
+		printFloatBox($word);
+	}
+	echo '<script type="text/javascript">document.getElementById("status").innerHTML=\'\';</script>';
+} else
+	die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">No Greek phrase entered</font>\';parent.document.getElementById(\'thetext\').focus();</script>');
               ?>
 </body>
 </html>
