@@ -11,6 +11,7 @@
   <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.4/themes/vader/jquery-ui.css" />
+  <link href="../style.css" rel="stylesheet" />
   <script type="text/javascript">
   //<![CDATA[
   $(function() {
@@ -27,19 +28,20 @@
   <p>Enter your Greek sentences below, and click the "Analyze" button, and you will see above each word its part of speech, tense, gender, mood, etc. Click on each word for its definition. Keyboard shortcuts: usually, "mod" = "alt" on PC and "ctrl" on Mac. Note: This analyzer returns multiple possibilities for some words because they have multiple inflections depending on the context. It is therefore your homework to choose the correct one from each drop-down menu before you print it out for later study!</p>
   <h2>Input</h2>
   <form action="analyze.php" target="outputIFrame" method="post">
-    <textarea name="thetext" id="thetext" accesskey="T" style="width: 100%; height: 100px;" rows="10" cols="100" title="Mod-T selects this field."></textarea><br />
-    <input type="submit" accesskey="A" onclick="window.frames['outputIFrame'].document.body.innerHTML='';" value="Analyze. (mod-A)" /><input type="reset" onclick="document.getElementById('thetext').focus()" value="Clear. (mod-C)" accesskey="C" />
+    <textarea class="text-area" name="thetext" id="thetext" accesskey="T" style="width: 100%; height: 100px;" rows="10" cols="100" title="Mod-T selects this field."></textarea><br />
+    <input class="button" type="submit" accesskey="A" onclick="window.frames['outputIFrame'].document.body.innerHTML='';" value="Analyze. (mod-A)" />
+    <input class="button" type="reset" onclick="document.getElementById('thetext').focus()" value="Clear. (mod-C)" accesskey="C" />
   </form><br />
   <h2>Output</h2>
   <div id="my-div-frame-wrapper" style="width: 100%; height: 300px;">
     <iframe style="width: 100%; height: 300px;" id="outputIFrame" name="outputIFrame">Your browser does not support this webpage. Please <a href='http://www.mozilla.com/?from=sfx&amp;uid=0&amp;t=306'><img src='http://sfx-images.mozilla.org/affiliates/Buttons/firefox3/110x32_get_ffx.png' alt='get Firefox' border='0' /></a>.</iframe>
   </div><br />
-  <button onclick="window.frames['outputIFrame'].focus();window.frames['outputIFrame'].print();" title="I found setting the printer scale to 75% makes a nicely-formatted hardcopy in Firefox." accesskey="P">Print. (mod-P)</button>
+  <button class="button" onclick="window.frames['outputIFrame'].focus();window.frames['outputIFrame'].print();" title="I found setting the printer scale to 75% makes a nicely-formatted hardcopy in Firefox." accesskey="P">Print. (mod-P)</button>
   <h3>Here are excellent resources:<a name="resources" id="resources"></a></h3>
-  <ol>
+  <ul class="resource-container">
     <li><a href="http://www.perseus.tufts.edu/hopper/collection?collection=Perseus%3Acorpus%3Aperseus%2Cauthor%2CNT">Greek New Testament (Westcott &amp; Hort)</a></li>
     <li><a href="https://isidore.co/calibre/#panel=book_details&amp;book_id=5842">Η ΠΑΛΑΙΑ ΔΙΑΘΗΚΗׅ: The Old Testament</a> &amp; <a href="https://isidore.co/calibre/#panel=book_details&amp;book_id=5841">Η ΚΑΙΝΗ ΔΙΑΘΗΚΗ: The New Testament</a></li>
-  </ol><a href="index.html#inflector">Return to the Greek Inflector.</a>
+  </ul><a href="index.html#inflector">Return to the Greek Inflector.</a>
   <p align="center"><a href="http://www.u.arizona.edu/~aversa/">Click here</a> to return to my homepage.</p>
   <hr />
   <a href="mailto:aveNOrsa@email.ariSPAMzona.edu?subject=Email%20from%20website&amp;body=So%20I%20receive%20your%20message,%20remove%20NO%20and%20SPAM%20from%20my%20email%20address%20and%20leave%20the%20subject%20unchanged.">Contact me.</a>

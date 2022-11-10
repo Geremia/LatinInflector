@@ -1,0 +1,56 @@
+body {
+  margin: 1rem;
+  color: #444;
+  background: #f5f7fa;
+  text-align: center;
+  font-size: 17px;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+a {
+  color: #496bbe;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.text-area {
+  background-color: #f5f7fa;
+}
+
+.resource-container {
+  text-align: left;
+  margin: 0 auto;
+  width: 50%;
+}
+
+h4 {
+  text-align: center;
+}
+
+.button {
+  border: 2px solid #496bbe;
+  border-radius: 2px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.button:hover {
+  background-color: rgb(73, 107, 190, 0.7);
+}
+
+.button:active {
+  scale: 1.1;
+}
