@@ -53,9 +53,9 @@ function printFloatBox($word){
 	$str = "";
 	$strarray = array();
 	$Body = $json->RDF->Annotation->Body;
-	if (sizeof($Body) == 1)
+	if (gettype($Body) == 'object')
 		$strarray = generateStrArray($Body);
-	else {
+	else { // $Body is an array:
 		foreach ($Body as $b) {
 			$strarray = array_merge($strarray,generateStrArray($b));
 		}
