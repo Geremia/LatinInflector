@@ -47,7 +47,7 @@ function generateStrArray($b) {
 }
 function printFloatBox($word){ 
 	$sansLigaturesEtc = iconv("utf-8", "us-ascii//TRANSLIT", $word); //remove ligatures
-	$wordForPerseus = preg_replace("/[^A-Z^a-z]/", "", $sansLigaturesEtc); //remove non-alpha
+	$wordForPerseus = preg_replace("/[[:punct:]]/", "", $sansLigaturesEtc); //remove punctuation
 	$jsonString = file_get_contents("http://services.perseids.org/bsp/morphologyservice/analysis/word?lang=lat&engine=morpheuslat&word=".$wordForPerseus) or die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">Cannot reach Perseus server</font>\';</script>');
 	$json = json_decode($jsonString);
 	$str = "";

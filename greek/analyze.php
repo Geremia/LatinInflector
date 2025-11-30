@@ -46,7 +46,8 @@ function generateStrArray($b) {
 
 }
 function printFloatBox($word){ 
-	$jsonString = file_get_contents("http://services.perseids.org/bsp/morphologyservice/analysis/word?lang=grc&engine=morpheusgrc&word=".$word) or die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">Cannot reach Perseus server</font>\';</script>');
+  $word_clean = preg_replace("/[[:punct:]]/", "", $word); // remove punctuation
+	$jsonString = file_get_contents("http://services.perseids.org/bsp/morphologyservice/analysis/word?lang=grc&engine=morpheusgrc&word=".$word_clean) or die('<script type="text/javascript">document.getElementById("status").innerHTML=\'<font color="red">Cannot reach Perseus server</font>\';</script>');
 	$json = json_decode($jsonString);
 	$str = "";
 	$strarray = array();
@@ -64,7 +65,7 @@ function printFloatBox($word){
 	$pos_as_html = '<div id="box"><select>';
 	foreach ($strarray as $elem)
 		$pos_as_html = $pos_as_html."<option>".$elem."</option>";
-	$pos_as_html = $pos_as_html.'</select><div id="lemma"><a href="javascript:definePopup(\''.$word.'\')">'.$word."</a></div></div>";
+	$pos_as_html = $pos_as_html.'</select><div id="lemma"><a href="javascript:definePopup(\''.$word_clean.'\')">'.$word."</a></div></div>";
 	echo $pos_as_html;
 }
 
